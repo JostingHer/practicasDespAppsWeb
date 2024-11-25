@@ -68,7 +68,7 @@ Servicio de DNS
   - Haz la búsqueda de forma autorizada, es decir, que el servidor que contesta sea uno de los registos NS del dominio.
 
   
-
+![alt text](image-3.png)
 
 
 
@@ -99,6 +99,45 @@ Servicio de DNS
 - Comprueba la resolución de los tres registros con alguna de las herramientas de diagnóstico.
 - Comprueba la misma resolución pero haciendo que el servidor consultado sea el 8.8.8.8
 
+
+
+El archivo /etc/hosts permite asociar manualmente nombres de dominio con IPs, ignorando la resolución DNS estándar.
+
+sudo nano /etc/hosts
+
+
+![alt text](image-4.png)
+
+
+Verifica la resolución de estos nombres:
+
+bash
+Copiar código
+host miapellido.local
+host miapellido.es
+host miapellido.com
+
+
+![alt text](image-5.png)
+
+
+Fuerza la consulta usando el servidor 8.8.8.8:
+
+bash
+Copiar código
+dig @8.8.8.8 miapellido.local
+
+
+![alt text](image-6.png)
+
+
+
+
+
+
+
+# HASTA AQUI LLEGAMOS
+
 ### Configuración del servidor  DNS con BIND9
 
 - Configura el dominio `miapellido.edu` en bind9. Debes hacerlo:
@@ -117,6 +156,3 @@ Servicio de DNS
   - Usar el comando de verificación sintáctica.
   - Reiniciar el servicio
   - Probar la resolución usando nslookup y dig. Ojo, la resolución de nombres debe correr a cargo del servidor Ubuntu.
-- Trabajo extra. Para mejorar tu calificación se te propone:
-  - Añadir una zona de resolución inversa
-  - Instalar Bind9 en el cliente Ubuntu y definirlo como DNS esclavo del primero.
