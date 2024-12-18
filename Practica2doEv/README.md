@@ -1,8 +1,5 @@
-# Práctica 1 Servicios web
+# Práctica 1 Servicios web: Configuración de servidores web con Apache y Nginx
 
-Configuración de servidores web con Apache y Nginx
-
-Es una práctica, no un examen. Estoy para resolver dudas y para ayudar.
 
 ## Objetivos
 
@@ -30,18 +27,15 @@ Vamos a configurar 4 sitios web
 - www.web3.com, alojado en /var/www/web3. Con fichero de inicio index.html
 - www.web4.com, alojado en /var/www/web4. Con fichero de inicio index.html
 
-![Alt text](image-6.png)
+
 
 
 ![Alt text](image-1.png)
 
-![Alt text](image-5.png)
-
 ![Alt text](image-3.png)
 
-![Alt text](image-2.png)
 
-![Alt text](image-4.png)
+
 
 Debes crear las  correspondientes carpetas web y sus ficheros de inicio. Cada index.html debe contener un mensaje con el nombre del sitio y con el tuyo propio. Algo así:
 
@@ -50,7 +44,13 @@ Debes crear las  correspondientes carpetas web y sus ficheros de inicio. Cada in
 Rafael Cabeza (pon tu nombre)
 ```
 
+![Alt text](image-5.png)
+![Alt text](image-2.png)
+
+Hacer esto con todas las paginas
+
 Debes configurar tu fichero hosts en el cliente para poder conectarte a ellos.
+![Alt text](image-6.png)
 
 ## Sitio 1
 
@@ -65,30 +65,7 @@ Debes configurar tu fichero hosts en el cliente para poder conectarte a ellos.
 ![Alt text](image.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![Alt text](image-4.png)
 
 
 
@@ -141,8 +118,9 @@ Debes configurar tu fichero hosts en el cliente para poder conectarte a ellos.
   }
   ```
 
-
-
   ![Alt text](image-13.png)
 
   ![Alt text](image-15.png)
+
+
+Hice la configuracion y el proxy no me va 
