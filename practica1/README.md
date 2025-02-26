@@ -209,3 +209,4 @@ Finalmente, reinicia el servicio para aplicar los cambios:
    ```bash
    sudo systemctl restart isc-dhcp-server
    ```
+>>>>>>> 60d71f996de2a27c8a9a9722299b909740f9a558
