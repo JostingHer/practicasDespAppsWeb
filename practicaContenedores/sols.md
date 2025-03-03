@@ -32,6 +32,7 @@
 
 ![WEb2 FUNCIONANDO](./image/image.png)
 
+![Modificamos el /etc/hosts](image.png)
 
 
 ## 📦 ** Configurar `docker-compose.yml`**  
