@@ -37,7 +37,7 @@
 ## 📦 ** Configurar `docker-compose.yml`**  
 
 ![Configuracion de las dos](./image/image-4.png)
-
+![Configuracion de la db](./image/image-10.png)
 
 
 ### Sitio app1.local
