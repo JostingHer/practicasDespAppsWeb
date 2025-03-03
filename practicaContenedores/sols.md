@@ -81,13 +81,6 @@ tambein cambiar en demo.sql
 
 ![Resultado appphp](./image/image-5.png)
 
-## 🛠️ **Paso 1: Preparar el proyecto**  
-1. Clona el repositorio de la aplicación PHP:  
-```bash
-git clone https://github.com/rafacabeza/demoappphp.git
-cd demoappphp
-```
-
 
 
 
