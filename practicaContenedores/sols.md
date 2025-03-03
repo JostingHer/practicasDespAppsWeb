@@ -28,8 +28,17 @@
   - Comprueba que funciona correnctamente el sitio web2.com (deberas editar el fichero hosts)
   - Deja una única red (network) en todos los contenedores. Llámale como consideres.
 
+![Clonando los repositorios](./image/image_CLON.png)
 
-![Clonando los repositorios](./img/image.png)
+![WEb2 FUNCIONANDO](./image/image.png)
+
+
+
+## 📦 ** Configurar `docker-compose.yml`**  
+
+![Configuracion de las dos](./image/image-4.png)
+
+
 
 ### Sitio app1.local
 
@@ -45,8 +54,13 @@
   - Revisa el resto de parámetros
 - Comprueba que funciona la ruta: http://app1.local
 
+Paso 1: mysql configuracion y cambios de credenciales
 
-# NO TENGO NI IDEA DE COMO HACERLO 
+![bases de datos](./image/image.png)
+![Cambiando credenciales](./image/image-1.png)
+
+
+![Resultado final](./image/image-2.png)
 
 ### Sitio app2.local - Levantar la aplicacion de php con mysql
 
@@ -61,7 +75,11 @@
   - Deberás añadir en variable de entorno "VIRTUAL_HOST", fíjate en web2
 - Comprueba que funciona la ruta: http://app2.local/api/deseos
 
+![Cambiando credenciales](./image/image-3.png)
 
+tambein cambiar en demo.sql
+
+![Resultado appphp](./image/image-5.png)
 
 ## 🛠️ **Paso 1: Preparar el proyecto**  
 1. Clona el repositorio de la aplicación PHP:  
@@ -70,99 +88,19 @@ git clone https://github.com/rafacabeza/demoappphp.git
 cd demoappphp
 ```
 
----
-
-## 🐳 **Paso 2: Crear un `Dockerfile` para PHP y Apache**  
-Crea un archivo llamado `Dockerfile` en el directorio raíz del proyecto con el siguiente contenido:  
-
-```Dockerfile
-# Usa una imagen oficial de PHP con Apache
-FROM php:8.1-apache
-
-# Instala extensiones necesarias para conectarse a MySQL
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-# Copia el código de la aplicación al contenedor
-COPY . /var/www/html
-
-# Permisos para el directorio de la aplicación
-RUN chown -R www-data:www-data /var/www/html
-
-# Expone el puerto 80 del contenedor
-EXPOSE 80
-```
 
 
 
----
+# HASTA AQUI LLEGAMOS NO ME DA TIEMPO DE HACER
 
-## 📦 **Paso 3: Configurar `docker-compose.yml`**  
+Un poco más de documentación.
+Si te da tiempo, como tarea extra:
 
-### Ojo: Cambiar las credenciales conforme a lo que pongas aqui
-    - app/index.php
-    - demo.sql - USE db_test
+Muestra una lista de todos las redes y volúmenes
 
+docker volume ls
+docker network ls
+Identifica la red y volúmenes utilizados y captura los datos de los mismos:
 
-    
-Crea un archivo `docker-compose.yml` en la raíz del proyecto con la configuración para los contenedores PHP y MySQL:  
-
-```yaml
-version: '3.9'
-
-services:
-  php-apache:
-    build: .
-    container_name: php-apache-container
-    ports:
-      - "8000:80"
-    volumes:
-      - ./db:/var/lib/mysql
-      - ./demo.sql:/docker-entrypoint-initdb.d/demo.sql 
-
-    depends_on:
-      - db
-
-  db:
-    image: mysql:8.0
-    container_name: mysql-container
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: demoapp
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
-    ports:
-      - "3306:3306"
-    volumes:
-      - db_data:/var/lib/mysql
-
-volumes:
-  db_data:
-```
-
-
-![MYSQL PHP](./img/image-1.png)
-![modificar credenciales](./img/image-2.png)
----
-
-## 🚀 **Paso 4: Levantar los contenedores**  
-En el terminal, en la raíz del proyecto, ejecuta:  
-
-```bash
-docker-compose up --build -d
-```
-
-Esto:  
-- Construye la imagen de PHP+Apache.  
-- Inicia los contenedores PHP y MySQL.  
-
----
-
-## 🔍 **Paso 5: Comprobar si funciona**  
-Abre tu navegador en `http://localhost:8000` para verificar que la aplicación PHP se ejecute correctamente.  
-
-
-![RESULTADO](./img/image-3.png)
-
-
-
-# HASTA AQUI LLEGAMOS
+docker inspect <nombre-volumen>
+docker inspect <nombre-red>
